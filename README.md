@@ -3,7 +3,7 @@
 
 **Jamie Watson, [Michael Firman](http://www.michaelfirman.co.uk), [Gabriel J. Brostow](http://www0.cs.ucl.ac.uk/staff/g.brostow/) and [Daniyar Turmukhambetov](http://www0.cs.ucl.ac.uk/staff/d.turmukhambetov/) – ICCV 2019**
 
-[Paper coming soon]
+[[Link to paper]](https://arxiv.org/abs/1909.09051)
 
 <p align="center">
   <img src="assets/kitti.gif" alt="example input output gif" width="700" />
@@ -28,7 +28,7 @@ We show additional monocular depth estimation results on the [sceneflow dataset]
 ## ✏️ 📄 Citation
 
 
-If you find our work useful or interesting, please consider citing our paper:
+If you find our work useful or interesting, please consider citing [our paper](https://arxiv.org/abs/1909.09051):
 
 ```
 @inproceedings{watson-2019-depth-hints,
@@ -45,14 +45,15 @@ If you find our work useful or interesting, please consider citing our paper:
 
 ## 📈 KITTI Results
 
-| Model Name | Training Modality | ImageNet Pretrained | Resolution | Abs Rel | 𝛿 < 1.25 |
-| ---------- | ---------- | ---------- | ---------- | ---------- | ---------- |
-| Ours Resnet50 | Stereo | yes | 640 x 192 | 0.102 | 0.880 |
-| Ours Resnet50 no pt | Stereo | no | 640 x 192 | 0.118 | 0.850 |
-| Ours HR Resnet50 | Stereo | yes | 1024 x 320 | 0.096 | 0.890 |
-| Ours HR Resnet50 no pt | Stereo | no | 1024 x 320 | 0.112 | 0.861 |
-| Ours HR | Mono + Stereo | yes | 1024 x 320 | 0.098 | 0.887 |
+| Model name | Training modality | ImageNet pretrained | Resolution | Abs rel | Sq rel | 𝛿 < 1.25 |
+| ---------- | ---------- | ---------- | ---------- | ---------- | ---------- | ----- |
+| Ours Resnet50 | Stereo | Yes | 640 x 192 | 0.102 | 0.762 | 0.880 | 
+| Ours Resnet50 no pt | Stereo | No | 640 x 192 | 0.118 | 0.941 | 0.850 |
+| Ours HR Resnet50 | Stereo | Yes | 1024 x 320 | 0.096 | 0.723 | 0.890 |
+| Ours HR Resnet50 no pt | Stereo | No | 1024 x 320 | 0.112 | 0.857 | 0.861 |
+| Ours HR | Mono + Stereo | Yes | 1024 x 320 | 0.098 | 0.702 | 0.887 |
 
+Please see the paper for full results.
 
 
 ## ⚙️ Code

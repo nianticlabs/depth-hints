@@ -1,7 +1,7 @@
 # Self-Supervised Monocular Depth Hints
 
 
-**Jamie Watson, [Michael Firman](http://www.michaelfirman.co.uk), [Gabriel J. Brostow](http://www0.cs.ucl.ac.uk/staff/g.brostow/) and [Daniyar Turmukhambetov](https://dantkz.github.io) – ICCV 2019**
+**Jamie Watson, [Michael Firman](http://www.michaelfirman.co.uk), [Gabriel J. Brostow](http://www0.cs.ucl.ac.uk/staff/g.brostow/) and [Daniyar Turmukhambetov](http://dantkz.github.io/) – ICCV 2019**
 
 [[Link to paper]](https://arxiv.org/abs/1909.09051)
 
@@ -37,8 +37,9 @@ If you find our work useful or interesting, please consider citing [our paper](h
                Michael Firman and
                Gabriel J. Brostow and
                Daniyar Turmukhambetov},
-  booktitle = {ICCV},
-  year      = {2019}
+  booktitle = {The International Conference on Computer Vision (ICCV)},
+  month = {October},
+  year = {2019}
 }
 ```
 
@@ -47,17 +48,81 @@ If you find our work useful or interesting, please consider citing [our paper](h
 
 | Model name | Training modality | ImageNet pretrained | Resolution | Abs rel | Sq rel | 𝛿 < 1.25 |
 | ---------- | ---------- | ---------- | ---------- | ---------- | ---------- | ----- |
-| Ours Resnet50 | Stereo | Yes | 640 x 192 | 0.102 | 0.762 | 0.880 | 
-| Ours Resnet50 no pt | Stereo | No | 640 x 192 | 0.118 | 0.941 | 0.850 |
-| Ours HR Resnet50 | Stereo | Yes | 1024 x 320 | 0.096 | 0.723 | 0.890 |
-| Ours HR Resnet50 no pt | Stereo | No | 1024 x 320 | 0.112 | 0.857 | 0.861 |
-| Ours HR | Mono + Stereo | Yes | 1024 x 320 | 0.098 | 0.702 | 0.887 |
+| [`Ours Resnet50`](https://console.cloud.google.com/storage/browser/niantic-lon-static/research/depth-hints/DH-Resnet50?project=platform-prod-static-london) | Stereo | Yes | 640 x 192 | 0.102 | 0.762 | 0.880 | 
+| [`Ours Resnet50 no pt`](https://console.cloud.google.com/storage/browser/niantic-lon-static/research/depth-hints/DH-Resnet50-nopt?project=platform-prod-static-london) | Stereo | No | 640 x 192 | 0.118 | 0.941 | 0.850 |
+| [`Ours HR Resnet50`](https://console.cloud.google.com/storage/browser/niantic-lon-static/research/depth-hints/DH-HR-Resnet50?project=platform-prod-static-london) | Stereo | Yes | 1024 x 320 | 0.096 | 0.710 | 0.890 |
+| [`Ours HR Resnet50 no pt`](https://console.cloud.google.com/storage/browser/niantic-lon-static/research/depth-hints/DH-HR-Resnet50-nopt?project=platform-prod-static-london) | Stereo | No | 1024 x 320 | 0.112 | 0.857 | 0.861 |
+| [`Ours HR`](https://console.cloud.google.com/storage/browser/niantic-lon-static/research/depth-hints/DH-HR-Mono+Stereo?project=platform-prod-static-london) | Mono + Stereo | Yes | 1024 x 320 | 0.098 | 0.702 | 0.887 |
 
 Please see the paper for full results.
 
 
 ## ⚙️ Code
 
-Coming soon!
+The code for ***Depth Hints*** builds upon [monodepth2](https://github.com/nianticlabs/monodepth2). If you have questions about running the code, please see the issues in that repository first.
 
-In the meantime check out our [monodepth2](https://github.com/nianticlabs/monodepth2) repository for depth estimation from monocular and stereo training data.
+To train using depth hints:
+  - Clone this repository
+  - Run `python precompute_depth_hints.py  --data_path <your_KITTI_path>`, optionally setting `--save_path` (will default to <data_path>/depth_hints) and `--filenames` (will default to training and validation images for the eigen split). This will create the "fused" depth hints referenced in the paper. This process takes approximately 4 hours on a GPU.
+  - Add the flag `--use_depth_hints` to your usual monodepth2 training command, optionally also setting `--depth_hint_path` (will default to <data_path>/depth_hints). See below for a full command.
+  
+🎉 And that's it! 🎉
+
+## 👀 Reproducing Paper Results
+
+To recreate the results from our paper, run:
+
+```
+python train.py
+  --data_path <your_KITTI_path>
+  --log_dir <your_save_path>
+  --model_name stereo_depth_hints
+  --use_depth_hints
+  --depth_hint_path <your_depth_hint_path>
+  --frame_ids 0  --use_stereo
+  --scheduler_step_size 5
+  --split eigen_full
+  --disparity_smoothness 0
+```
+
+Additionally:
+  - For Resnet50 models, add `--num_layers 50`
+  - Add `--height 320  --width 1024` for High Resolution models (you may also have to set `--batch_size 6` depending on the size of your GPU) 
+  - For Mono + Stereo add `--frame_ids 0 -1 1 ` and remove `--split eigen_full`
+
+The results above and in the main paper arise from evaluating on the KITTI sparse LiDAR point cloud, using the Eigen Test split.
+
+To test on KITTI, run:
+
+```
+python evaluate_depth.py
+  --data_path <your_KITTI_path>
+  --load_weights_folder <your_model_path>
+  --use_stereo
+```
+
+Make sure you have run `export_gt_depth.py` to extract ground truth files. 
+
+Additionally, if you see `ValueError: Object arrays cannot be loaded when allow_pickle=False`, then either downgrade numpy, or change line 166 to
+
+```
+gt_depths = np.load(gt_path, fix_imports=True, encoding='latin1', allow_pickle=True)["data"]
+```
+
+## 🖼 Running on your own images
+
+To run on your own images, run:
+
+```
+python test_simple.py
+  --image_path <your_image_path>
+  --model_path <your_model_path>
+  --num_layers <18 or 50>
+```
+
+This will save a numpy array of depths, and a colormapped depth image.
+
+## 👩‍⚖️ License
+Copyright © Niantic, Inc. 2020. Patent Pending.
+All rights reserved.
+Please see the [license file](LICENSE) for terms.

@@ -103,7 +103,7 @@ python evaluate_depth.py
 
 Make sure you have run `export_gt_depth.py` to extract ground truth files. 
 
-Additionally, if you see `ValueError: Object arrays cannot be loaded when allow_pickle=False`, then either downgrade numpy, or change line 166 to
+Additionally, if you see `ValueError: Object arrays cannot be loaded when allow_pickle=False`, then either downgrade numpy, or change line 166 in `evaluate_depth.py` to
 
 ```
 gt_depths = np.load(gt_path, fix_imports=True, encoding='latin1', allow_pickle=True)["data"]

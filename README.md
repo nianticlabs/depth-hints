@@ -1,7 +1,7 @@
 # Self-Supervised Monocular Depth Hints
 
 
-**Jamie Watson, [Michael Firman](http://www.michaelfirman.co.uk), [Gabriel J. Brostow](http://www0.cs.ucl.ac.uk/staff/g.brostow/) and [Daniyar Turmukhambetov](http://dantkz.github.io/) – ICCV 2019**
+**[Jamie Watson](https://scholar.google.com/citations?view_op=list_works&hl=en&user=5pC7fw8AAAAJ), [Michael Firman](http://www.michaelfirman.co.uk), [Gabriel J. Brostow](http://www0.cs.ucl.ac.uk/staff/g.brostow/) and [Daniyar Turmukhambetov](http://dantkz.github.io/) – ICCV 2019**
 
 [[Link to paper]](https://arxiv.org/abs/1909.09051)
 

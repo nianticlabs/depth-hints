@@ -54,7 +54,7 @@ If you find our work useful or interesting, please consider citing [our paper](h
 | [`Ours HR Resnet50 no pt`](https://console.cloud.google.com/storage/browser/niantic-lon-static/research/depth-hints/DH-HR-Resnet50-nopt?project=platform-prod-static-london) | Stereo | No | 1024 x 320 | 0.112 | 0.857 | 0.861 |
 | [`Ours HR`](https://console.cloud.google.com/storage/browser/niantic-lon-static/research/depth-hints/DH-HR-Mono+Stereo?project=platform-prod-static-london) | Mono + Stereo | Yes | 1024 x 320 | 0.098 | 0.702 | 0.887 |
 
-Please see the paper for full results.
+Please see the paper for full results. Our predictions for the eigen test set are available as numpy arrays inside each models folder - follow the links above.
 
 
 ## ⚙️ Code

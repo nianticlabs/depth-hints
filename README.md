@@ -48,13 +48,22 @@ If you find our work useful or interesting, please consider citing [our paper](h
 
 | Model name | Training modality | ImageNet pretrained | Resolution | Abs rel | Sq rel | 𝛿 < 1.25 |
 | ---------- | ---------- | ---------- | ---------- | ---------- | ---------- | ----- |
-| [`Ours Resnet50`](https://console.cloud.google.com/storage/browser/niantic-lon-static/research/depth-hints/DH-Resnet50?project=platform-prod-static-london) | Stereo | Yes | 640 x 192 | 0.102 | 0.762 | 0.880 | 
-| [`Ours Resnet50 no pt`](https://console.cloud.google.com/storage/browser/niantic-lon-static/research/depth-hints/DH-Resnet50-nopt?project=platform-prod-static-london) | Stereo | No | 640 x 192 | 0.118 | 0.941 | 0.850 |
-| [`Ours HR Resnet50`](https://console.cloud.google.com/storage/browser/niantic-lon-static/research/depth-hints/DH-HR-Resnet50?project=platform-prod-static-london) | Stereo | Yes | 1024 x 320 | 0.096 | 0.710 | 0.890 |
-| [`Ours HR Resnet50 no pt`](https://console.cloud.google.com/storage/browser/niantic-lon-static/research/depth-hints/DH-HR-Resnet50-nopt?project=platform-prod-static-london) | Stereo | No | 1024 x 320 | 0.112 | 0.857 | 0.861 |
-| [`Ours HR`](https://console.cloud.google.com/storage/browser/niantic-lon-static/research/depth-hints/DH-HR-Mono+Stereo?project=platform-prod-static-london) | Mono + Stereo | Yes | 1024 x 320 | 0.098 | 0.702 | 0.887 |
+| `Ours Resnet50` | Stereo | Yes | 640 x 192 | 0.102 | 0.762 | 0.880 | 
+| `Ours Resnet50 no pt` | Stereo | No | 640 x 192 | 0.118 | 0.941 | 0.850 |
+| `Ours HR Resnet50` | Stereo | Yes | 1024 x 320 | 0.096 | 0.710 | 0.890 |
+| `Ours HR Resnet50 no pt` | Stereo | No | 1024 x 320 | 0.112 | 0.857 | 0.861 |
+| `Ours HR` | Mono + Stereo | Yes | 1024 x 320 | 0.098 | 0.702 | 0.887 |
 
-Please see the paper for full results. Our predictions for the eigen test set are available as numpy arrays inside each models folder - follow the links above.
+Please see the paper for full results. To download the weights and predictions for each model please follow the links below:
+
+| Model name | Training modality | ImageNet pretrained | Resolution | Weights | Eigen Predictions | 
+| ---------- | ---------- | ---------- | ---------- | ---------- | ---------- |
+| `Ours Resnet50` | Stereo | Yes | 640 x 192 | [Download](https://storage.cloud.google.com/niantic-lon-static/research/depth-hints/DH-Resnet50/models.zip) | [Download](https://storage.cloud.google.com/niantic-lon-static/research/depth-hints/DH-Resnet50/disps_eigen_split.npy) |
+| `Ours Resnet50 no pt` | Stereo | No | 640 x 192 | [Download](https://storage.cloud.google.com/niantic-lon-static/research/depth-hints/DH-Resnet50-nopt/models.zip)| [Download](https://storage.cloud.google.com/niantic-lon-static/research/depth-hints/DH-Resnet50-nopt/disps_eigen_split.npy) | 
+| `Ours HR Resnet50` | Stereo | Yes | 1024 x 320 | [Download](https://storage.cloud.google.com/niantic-lon-static/research/depth-hints/DH-HR-Resnet50/models.zip) | [Download](https://storage.cloud.google.com/niantic-lon-static/research/depth-hints/DH-HR-Resnet50/disps_eigen_split.npy) | 
+| `Ours HR Resnet50 no pt` | Stereo | No | 1024 x 320 | [Download](https://storage.cloud.google.com/niantic-lon-static/research/depth-hints/DH-HR-Resnet50-nopt/models.zip) | [Download](https://storage.cloud.google.com/niantic-lon-static/research/depth-hints/DH-HR-Resnet50-nopt/disps_eigen_split.npy) |
+| `Ours HR` | Mono + Stereo | Yes | 1024 x 320 | [Download](https://storage.cloud.google.com/niantic-lon-static/research/depth-hints/DH-HR-Mono%2BStereo/models.zip) | [Download](https://storage.cloud.google.com/niantic-lon-static/research/depth-hints/DH-HR-Mono%2BStereo/disps_eigen_split.npy) |
+
 
 
 ## ⚙️ Code

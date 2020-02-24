@@ -58,11 +58,11 @@ Please see the paper for full results. To download the weights and predictions f
 
 | Model name | Training modality | ImageNet pretrained | Resolution | Weights | Eigen Predictions | 
 | ---------- | ---------- | ---------- | ---------- | ---------- | ---------- |
-| `Ours Resnet50` | Stereo | Yes | 640 x 192 | [Download](https://storage.cloud.google.com/niantic-lon-static/research/depth-hints/DH-Resnet50/models.zip) | [Download](https://storage.cloud.google.com/niantic-lon-static/research/depth-hints/DH-Resnet50/disps_eigen_split.npy) |
-| `Ours Resnet50 no pt` | Stereo | No | 640 x 192 | [Download](https://storage.cloud.google.com/niantic-lon-static/research/depth-hints/DH-Resnet50-nopt/models.zip)| [Download](https://storage.cloud.google.com/niantic-lon-static/research/depth-hints/DH-Resnet50-nopt/disps_eigen_split.npy) | 
-| `Ours HR Resnet50` | Stereo | Yes | 1024 x 320 | [Download](https://storage.cloud.google.com/niantic-lon-static/research/depth-hints/DH-HR-Resnet50/models.zip) | [Download](https://storage.cloud.google.com/niantic-lon-static/research/depth-hints/DH-HR-Resnet50/disps_eigen_split.npy) | 
-| `Ours HR Resnet50 no pt` | Stereo | No | 1024 x 320 | [Download](https://storage.cloud.google.com/niantic-lon-static/research/depth-hints/DH-HR-Resnet50-nopt/models.zip) | [Download](https://storage.cloud.google.com/niantic-lon-static/research/depth-hints/DH-HR-Resnet50-nopt/disps_eigen_split.npy) |
-| `Ours HR` | Mono + Stereo | Yes | 1024 x 320 | [Download](https://storage.cloud.google.com/niantic-lon-static/research/depth-hints/DH-HR-Mono%2BStereo/models.zip) | [Download](https://storage.cloud.google.com/niantic-lon-static/research/depth-hints/DH-HR-Mono%2BStereo/disps_eigen_split.npy) |
+| `Ours Resnet50` | Stereo | Yes | 640 x 192 | [Download](https://storage.googleapis.com/niantic-lon-static/research/depth-hints/DH-Resnet50/models.zip) | [Download](https://storage.googleapis.com/niantic-lon-static/research/depth-hints/DH-Resnet50/disps_eigen_split.npy) |
+| `Ours Resnet50 no pt` | Stereo | No | 640 x 192 | [Download](https://storage.googleapis.com/niantic-lon-static/research/depth-hints/DH-Resnet50-nopt/models.zip)| [Download](https://storage.googleapis.com/niantic-lon-static/research/depth-hints/DH-Resnet50-nopt/disps_eigen_split.npy) | 
+| `Ours HR Resnet50` | Stereo | Yes | 1024 x 320 | [Download](https://storage.googleapis.com/niantic-lon-static/research/depth-hints/DH-HR-Resnet50/models.zip) | [Download](https://storage.googleapis.com/niantic-lon-static/research/depth-hints/DH-HR-Resnet50/disps_eigen_split.npy) | 
+| `Ours HR Resnet50 no pt` | Stereo | No | 1024 x 320 | [Download](https://storage.googleapis.com/niantic-lon-static/research/depth-hints/DH-HR-Resnet50-nopt/models.zip) | [Download](https://storage.googleapis.com/niantic-lon-static/research/depth-hints/DH-HR-Resnet50-nopt/disps_eigen_split.npy) |
+| `Ours HR` | Mono + Stereo | Yes | 1024 x 320 | [Download](https://storage.googleapis.com/niantic-lon-static/research/depth-hints/DH-HR-Mono%2BStereo/models.zip) | [Download](https://storage.googleapis.com/niantic-lon-static/research/depth-hints/DH-HR-Mono%2BStereo/disps_eigen_split.npy) |
 
 
 
